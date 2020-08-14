@@ -1,0 +1,111 @@
+login as: ec2-user
+Authenticating with public key "AWS-udacity-ohio"
+This system is not registered to Red Hat Insights. See https://cloud.redhat.com/
+To register this system, run: insights-client --register
+
+[ec2-user@ip-10-1-11-157 ~]$ yum install mysql
+Error: This command has to be run under the root user.
+[ec2-user@ip-10-1-11-157 ~]$ sudo su
+[root@ip-10-1-11-157 ec2-user]# yum install mysql
+Last metadata expiration check: 0:03:22 ago on Tue 07 Jul 2020 02:54:21 PM UTC.
+Dependencies resolved.
+================================================================================
+ Package                    Arch   Version     Repository                  Size
+================================================================================
+Installing:
+ mysql                      x86_64 8.0.17-3.module+el8.0.0+3898+e09bb8de
+                                               rhel-8-appstream-rhui-rpms  11 M
+Installing dependencies:
+ mariadb-connector-c-config noarch 3.0.7-1.el8 rhel-8-appstream-rhui-rpms  13 k
+ mysql-common               x86_64 8.0.17-3.module+el8.0.0+3898+e09bb8de
+                                               rhel-8-appstream-rhui-rpms 143 k
+Enabling module streams:
+ mysql                             8.0
+
+Transaction Summary
+================================================================================
+Install  3 Packages
+
+Total download size: 11 M
+Installed size: 67 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/3): mariadb-connector-c-config-3.0.7-1.el8.n 104 kB/s |  13 kB     00:00
+(2/3): mysql-common-8.0.17-3.module+el8.0.0+389 1.0 MB/s | 143 kB     00:00
+(3/3): mysql-8.0.17-3.module+el8.0.0+3898+e09bb  32 MB/s |  11 MB     00:00
+--------------------------------------------------------------------------------
+Total                                            30 MB/s |  11 MB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : mariadb-connector-c-config-3.0.7-1.el8.noarch          1/3
+  Installing       : mysql-common-8.0.17-3.module+el8.0.0+3898+e09bb8de.x   2/3
+  Installing       : mysql-8.0.17-3.module+el8.0.0+3898+e09bb8de.x86_64     3/3
+  Running scriptlet: mysql-8.0.17-3.module+el8.0.0+3898+e09bb8de.x86_64     3/3
+  Verifying        : mysql-8.0.17-3.module+el8.0.0+3898+e09bb8de.x86_64     1/3
+  Verifying        : mysql-common-8.0.17-3.module+el8.0.0+3898+e09bb8de.x   2/3
+  Verifying        : mariadb-connector-c-config-3.0.7-1.el8.noarch          3/3
+
+Installed:
+  mariadb-connector-c-config-3.0.7-1.el8.noarch
+  mysql-8.0.17-3.module+el8.0.0+3898+e09bb8de.x86_64
+  mysql-common-8.0.17-3.module+el8.0.0+3898+e09bb8de.x86_64
+
+Complete!
+[root@ip-10-1-11-157 ec2-user]# mysql -h secondary-database.cmyzyx5yolv1.us-east-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 5.7.22 Source distribution
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| innodb             |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> USE udacity;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| AWScourse         |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM AWScourse;
++-----------+-----------------------+
+| chap_numb | chapter               |
++-----------+-----------------------+
+|         1 | Introduction          |
+|         2 | Recoverability in AWS |
++-----------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO AWScourse(chap_numb, chapter) VALUES (3, 'Design for Performance and Scalability');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql> DELETE FROM AWScourse ORDER BY chap_numb DESC LIMIT 1;
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql>

@@ -1,0 +1,77 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Jul  7 14:15:43 2020 from 98.215.37.212
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-0-11-222 ~]$ sudo su
+[root@ip-10-0-11-222 ec2-user]# yum install mysql
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                               | 3.7 kB     00:00
+amzn2extra-docker                                        | 3.0 kB     00:00
+Package 1:mariadb-5.5.64-1.amzn2.x86_64 already installed and latest version
+Nothing to do
+[root@ip-10-0-11-222 ec2-user]# mysql -h primary-database.c2imondnaqh7.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 110
+Server version: 5.7.22-log Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| innodb             |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+6 rows in set (0.00 sec)
+
+MySQL [(none)]> USE udacity;
+Database changed
+MySQL [udacity]> SHOW TABLES;
+Empty set (0.00 sec)
+
+MySQL [udacity]> CREATE TABLE AWScourse(     chap_numb INT,     chapter VARCHAR(255));
+Query OK, 0 rows affected (0.04 sec)
+
+MySQL [udacity]> INSERT INTO AWScourse(chap_numb, chapter) VALUES (1, 'Introduction');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> INSERT INTO AWScourse(chap_numb, chapter) VALUES (2, 'Recoverability in AWS');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> INSERT INTO AWScourse(chap_numb, chapter) VALUES (3, 'Recoverability in AWS');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> SELECT * FROM AWScourse;
++-----------+-----------------------+
+| chap_numb | chapter               |
++-----------+-----------------------+
+|         1 | Introduction          |
+|         2 | Recoverability in AWS |
+|         3 | Recoverability in AWS |
++-----------+-----------------------+
+3 rows in set (0.00 sec)
+
+MySQL [udacity]> DELETE FROM AWScourse ORDER BY chap_numb DESC LIMIT 1;         Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> SELECT * FROM AWScourse;                                       +-----------+-----------------------+
+| chap_numb | chapter               |
++-----------+-----------------------+
+|         1 | Introduction          |
+|         2 | Recoverability in AWS |
++-----------+-----------------------+
+2 rows in set (0.00 sec)
+
+MySQL [udacity]>

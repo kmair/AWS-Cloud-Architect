@@ -1,0 +1,20 @@
+Our service uses AWS to manage the data provided which provides 99.95% SLA uptime for AZ. For regional DR, which has occurred twice, the downtime was 3-5 hours
+
+Minimum RTO for a single AZ outage = 15 minutes
+With a 24/7 support team, in the event of AZ outage, the minimimum RTO to bring the web service back online would be: 
+5 minutes: To get the engineers available and do the recovery following CloudWatch Alarm.
+10 minutes: Configure the service to fall back onto the alternate AZ in our region	
+
+Minimum RTO for a single region outage = 50 minutes
+In the event of a regional outage, with AWS services taking few hours to come back online, 6 hours is the worst-case scenario. Best plan would be to transition to alternate region
+5 minutes: To get the engineers available and do the recovery following CloudWatch Alarm.
+5 minutes: Review policy to migrate and check for safely functioning regions
+10 minutes: Get the backup of our instance to be launched in the new region
+6 minutes: Get a new instance launched with the AMI copy of previous region
+13 minutes: Launch this in new region with and test the new IP address' configuration
+
+Minimum RPO for a single AZ outage = 5 minutes
+According to AWS, RPO for recovery with an RDS Single-AZ instance failure is typically 5 minutes.  
+
+Minimum RPO for a single region outage = 15 minutes
+If we have a database with data loss in an entire region, a backup using read-replica from other region will be obtained.
