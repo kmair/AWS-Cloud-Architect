@@ -1,0 +1,13 @@
+Group hierarchy,Region,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),Amazon EC2,0,3650.16,43801.92,USD,"Operating system (Linux), Quantity (2), Storage for each EC2 instance (General Purpose SSD (gp2)), Storage amount (30 GB), Instance type (i3.8xlarge)"
+My Estimate,US East (N. Virginia),Elastic Load Balancing,0,577.07,6924.84,USD,Number of Application Load Balancers (1)
+My Estimate,US East (N. Virginia),S3 Standard,0,47.1,565.2,USD,S3 Standard storage (2 TB per month)
+My Estimate,US East (N. Virginia),Amazon Virtual Private Cloud (VPC),0,526.5,6318,USD,Number of NAT Gateways (2)
+My Estimate,US East (N. Virginia),Amazon Aurora MySQL-Compatible,0,1115.6,13387.2,USD,"Change records per statement (0.38), Storage amount (10 TB), Number of I/Os per month in millions (20)"
+My Estimate,US East (N. Virginia),Amazon Elastic IP,0,7.3,87.6,USD,"Number of EIPs per instance (2), Number of EC2 instances (2)"
+My Estimate,US East (N. Virginia),Amazon Route 53,0,31,372,USD,Hosted Zones (2)
+Total,,,0,5954.73,71456.76,USD,
+,,,,,,,
+Narrative,"Since running the social-media's high data transfer needs lot of EC2 proceessing, to reduce costs, I downgraded it from the i3.16xlarge (10Gbps) to i3.8xlarge (10Gbps) which will affect data transfer but is still fast enough",,,,,,
+,,,,,,,
+"AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",,,,,,,

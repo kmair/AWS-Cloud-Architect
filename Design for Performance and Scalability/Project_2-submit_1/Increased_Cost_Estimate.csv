@@ -1,0 +1,13 @@
+Group hierarchy,Region,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),Amazon EC2,0,14588.64,175063.68,USD,"Operating system (Linux), Quantity (4), Storage for each EC2 instance (General Purpose SSD (gp2)), Storage amount (30 GB), Instance type (i3.16xlarge)"
+My Estimate,US East (N. Virginia),Elastic Load Balancing,0,577.07,6924.84,USD,Number of Application Load Balancers (1)
+My Estimate,US East (N. Virginia),S3 Standard,0,47.1,565.2,USD,S3 Standard storage (2 TB per month)
+My Estimate,US East (N. Virginia),Amazon Virtual Private Cloud (VPC),0,526.5,6318,USD,Number of NAT Gateways (2)
+My Estimate,US East (N. Virginia),Amazon Aurora MySQL-Compatible,0,4187.6,50251.2,USD,"Change records per statement (0.38), Storage amount (40 TB), Number of I/Os per month in millions (20)"
+My Estimate,US East (N. Virginia),Amazon Elastic IP,0,7.3,87.6,USD,"Number of EIPs per instance (2), Number of EC2 instances (2)"
+My Estimate,US East (N. Virginia),Amazon Route 53,0,31,372,USD,Hosted Zones (2)
+Total,,,0,19965.21,239582.52,USD,
+,,,,,,,
+Narrative,"For higher redundancy and scaling, the i3.16xlarge instance handles 25Gbps and increased the instances. Also, for greater number of users now possible, the RDS memory is increased from 10TB to 40TB",,,,,,
+,,,,,,,
+"AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",,,,,,,
