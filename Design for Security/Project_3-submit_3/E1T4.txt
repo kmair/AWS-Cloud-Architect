@@ -1,0 +1,9 @@
+Based on the network architecture, we can identify the following problems and the solutions to them:
+
+1. The access to the ports is easily accessible if malicious scripts attempt to login and get the secret recipes
+
+Solution: In order to restrict such attempts, we can restrict the access to the instance by allowing access to the ports via the Load Balancer only and no SSH attempts to login.
+
+2. The buckets aren't configured for the Defensive Cloud Strategy with any encryption to protect from unauthorized access.
+
+Solution: We must protect our data with KMS service or simply configure the S3-Managed Keys for all our recipe vault buckets.

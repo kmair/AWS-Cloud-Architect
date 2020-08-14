@@ -1,0 +1,9 @@
+The AWS GuardDuty catches a couple of brute force attacks:
+
+- An instance is trying to perform an SSH brute force attack
+- An instance is being attacked by an SSH brute force attack
+
+AWS Guard Duty documentation explains how it applies machine learning, anomaly detection, and integrated threat intelligence to identify and prioritize potential threats; and the data sources for AWS to analyze these are AWS CloudTrail, Amazon VPC Flow Logs, and DNS logs.
+In this exercise, our CloudFormation Stack deployed has VPC flow logs written to an S3 bucket which is being analyzed by GuardDuty.
+The logs show multiple requests being sent from an instance to a specific IP indicating that it is being used for an SSH brute force attack.
+The instance recieving these requests in logs can be ascribed to be the instance under this brute force attack.

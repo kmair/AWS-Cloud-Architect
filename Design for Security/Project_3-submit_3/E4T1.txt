@@ -1,0 +1,7 @@
+To prevent an SSH brute force attack from the internet, we'll need to make our instance access least privileged by:
+- To avert the possibility of attempt to crack the password, we'll disable password authentication to the server.
+- We'll remove the access to the instance from any route (0.0.0.0/0) in our security group, allowing only access from our AWS Load Balancer's port
+
+Protecting access to the secret recipes bucket
+- Firstly, the encryption proposed in E1T4 must be implemented to provide the data for customers with the authentication key.
+- We need an IAM policy to protect our data by managing the role of service with only read access to the bucket

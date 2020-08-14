@@ -1,0 +1,11 @@
+The vulnerabilities related to the code that was deployed is being monitored by AWS Security Hub. The code infrastructure's high severity issues found are:
+
+1. Ensure the default security group of every VPC restricts all traffic
+2. Ensure no security groups allow ingress from 0.0.0.0/0 to port 22
+3. Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389
+
+The remediation, based on AWS documentation for the above respectively are:
+
+1. We need to make the least privilege access to the VPC by updating the security group. The Inbound and Outbound Rules need to be deleted to restrict all traffic thereby reducing any exposure to the resources.
+2. We need to remove connectivity to remote console services, such as SSH. To do so, we must identify the rule that allows access through port 22 and remove it.
+3. Similar to the above, we must the Security Group's Inbound Rules and find the rule that allows access through port 3389 and remove it.

@@ -1,0 +1,24 @@
+Tools to use in the pipeline to find security vulnerabilities:
+
+a. Scan infrastructure as code templates
+
+CFRipper - A python library and CLI tool to analyze CloudFormation templates and check them for security compliance.
+
+Vulnerability - In our launched instance, it can raise EC2SecurityGroupMissingEgressRule: Missing egress rule in NoIngressSecurityGroup means all traffic is allowed outbound.
+
+b. Scan AMI’s or containers for OS vulnerabilities
+
+Anchore Engine - It is an open source container image scanning tool that analyzes packages and third-party libraries present in container images to find known software vulnerabilities and report on content and licenses.
+
+Vulnerability - Based on documentation, if we have Java container image with misconfiguration, following is an example error
+
+Vulnerability ID                               Package                       Severity        Fix                     Vulnerability URL                                                   
+SNYK-JAVA-COMFASTERXMLJACKSONCORE-72448        jackson-databind-2.9.7        High            ! <2.6.7.2              https://snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-72448        
+
+c. Scan an AWS environment for cloud configuration vulnerabilities
+
+AWS Config - A service that enables you to assess, audit, and evaluate the configurations of your AWS resources.
+
+Vulnerability - An SSH vulnerability raised by AWS Config:
+securityhub-restricted-ssh-dcb191b0
+Description: Checks whether the incoming SSH traffic for the security groups is accessible. The rule is compliant when the IP addresses of the incoming SSH traffic in the security groups are restricted. This rule applies only to IPv4.
