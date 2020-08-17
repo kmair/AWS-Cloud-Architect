@@ -7,4 +7,6 @@ A brief preview of the projects worked upon are as:
 
 ## 1. Design for Availability, Resilience and Reliability
 
-![Available](../Design for Availability, Resilience and Reliability/screenshots/Highly available architecture.png)
+The objective is to design a highhly available website with the following architecture
+
+![Available](Design%20for%20Availability%2C%20Resilience%20and%20Reliability/screenshots/Highly%20available%20architecture.PNG)
