@@ -7,3 +7,4 @@ A brief preview of the projects worked upon are as:
 
 ## 1. Design for Availability, Resilience and Reliability
 
+![Available](../Design for Availability, Resilience and Reliability/screenshots/Highly available architecture.png)
