@@ -1,0 +1,6 @@
+# Key pairs
+*.ppk
+*.pem
+
+# Avoiding the Terraform's application files
+*.exe
