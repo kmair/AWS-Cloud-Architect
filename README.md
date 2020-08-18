@@ -29,6 +29,13 @@ Terraform was used to deploy Infrastructure as a Code and monitored using CloudW
 
 ## 3. Design for Security
 
-t
-![Available](Design%20for%20Security/AWS-WebServiceDiagram-v1-insecure.PNG)
+The initial AWS infrastructure for a subscription-based website is susceptible to an Attack instance due to insufficient security configurations.
+By setting up AWS Config, AWS Inspector, and AWS Security Hub, the source of malpractices was identified.
 
+![Security](Design%20for%20Security/starter/AWS-WebServiceDiagram-v1-insecure.png)
+
+To plug these loopholes, following changes were made:
+- Removing SSH with password ability for logging into the system to avoid password break attempts by the attacking instance
+- Further hardening achieved by limiting access ports coming only through the Application Load Balancer to the Web Service Instance
+- Protecting secrets with file encryption within AWS
+- Limiting access to the S3 buckets using key manages services (KMS)
