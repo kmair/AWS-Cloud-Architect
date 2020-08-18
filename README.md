@@ -1,6 +1,6 @@
 # AWS-Cloud-Architect Nanodegree
 
-This repository contains the work done towards completion of this Nanodegree towards building AWS Cloud Architecture. [Certificate](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
+This repository contains the work done towards completion of this Nanodegree towards building AWS Cloud Architecture. [Certificate](https://confirm.udacity.com/K23QHKTC)
 for this nanodegree.
 
 A brief preview of the projects worked upon are as follows:
